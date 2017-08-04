@@ -15,6 +15,10 @@ if [ "$1" = mock ] || [ "$1" = /usr/bin/mock ]; then
         find /var/cache/mock -type d -exec chmod g+s {} \;
     fi
 
+    if [ -n "$WORKDIR" ] && [ -d "$WORKDIR" ]; then
+        cd "$WORKDIR"
+    fi
+
     exec gosu "$USER" "$@"
 else
     exec "$@"
