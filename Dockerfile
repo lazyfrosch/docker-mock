@@ -1,6 +1,6 @@
 FROM fedora:26
 
-RUN dnf install -y mock
+RUN dnf install -y mock yum yum-utils
 
 ENV USER=markus \
     UID=1000 \
