@@ -1,6 +1,6 @@
 FROM fedora:26
 
-RUN dnf install -y mock findutils
+RUN dnf install -y mock
 
 ENV USER=markus \
     UID=1000 \

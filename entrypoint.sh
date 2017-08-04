@@ -5,14 +5,14 @@ set -e
 if [ "$1" = mock ] || [ "$1" = /usr/bin/mock ]; then
     if [ `stat -c %G /var/lib/mock` != mock ]; then
         echo "Updating permissions on /var/lib/mock"
-        chgrp -R mock /var/lib/mock
-        find /var/lib/mock -type d -exec chmod g+s {} \;
+        chgrp mock /var/lib/mock
+        chmod g+s /var/cache/mock
     fi
 
     if [ `stat -c %G /var/cache/mock` != mock ]; then
         echo "Updating permissions on /var/cache/mock"
-        chgrp -R mock /var/cache/mock
-        find /var/cache/mock -type d -exec chmod g+s {} \;
+        chgrp mock /var/cache/mock
+        chmod g+s /var/cache/mock
     fi
 
     if [ -n "$WORKDIR" ] && [ -d "$WORKDIR" ]; then
