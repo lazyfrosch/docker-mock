@@ -3,9 +3,25 @@ Mock in Docker
 
 ## Usage
 
-* Update `Dockerfile` with your USER / GROUP and UID / GID
-* Build it with `make`
-* Update `mock.example.sh` to your needs and copy it to `~/bin`
+Pull the image from Docker Hub
+
+    docker pull lazyfrosch/mock
+
+Have a look on the helper script `mock.example.sh` here and modify it to your needs.
+
+    vim mock.example.sh
+    cp mock.example.sh $HOME/bin/mock
+    chmod +x $HOME/bin/mock
+
+Then you can run mock like it would be installed locally.
+
+## Important notes
+
+About the helper script.
+
+* For correct permissions to work the helper script uses your UID and GID to write files
+* The helper script mounts your HOME directory to the container
+* Put the build/cache dirs to a volume or persistent location on your host
 
 ## License
 
